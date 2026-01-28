@@ -1,8 +1,8 @@
-import LandingSection from '../../components/pages/landing/section';
+import Landing from '../../components/pages/landing/ladding';
 
 function LandingPage() {
     return (
-        <LandingSection />
+        <Landing />
     )
 }
 

@@ -3,10 +3,10 @@ import SectionMain from './section/section-main';
 import SectionSkills from './section/section-skills';
 import SectionLibraries from './section/section-libraries';
 import SectionWorks from './section/section-works';
-import SectionProcess from './section/section-process';
+import SectionProcess from './section/process/section-process';
 import SectionContacts from './section/section-contact';
 
-function LandingSection() {
+function Landing() {
   return (
      <>
       <Gnb />
@@ -20,4 +20,4 @@ function LandingSection() {
   )
 }
 
-export default LandingSection
+export default Landing

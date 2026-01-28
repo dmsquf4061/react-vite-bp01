@@ -18,7 +18,7 @@ function SectionLibraries() {
         <li className="w-full md:w-[calc(100vw-500px)] h-[calc(100vh-220px)] md:h-full flex justify-center md:justify-start items-center">
           {currentIndex === null ? (
             /* 초기 타이틀 */
-            <h1 className="flex flex-col font-extrabold leading-none md:ml-20 text-5xl md:text-7xl md:text-left">
+            <h1 className="flex flex-col md:gap-2 font-extrabold leading-none md:ml-20 text-5xl md:text-7xl md:text-left">
               <span>Examples of</span>
               <span>interaction in use.</span>
             </h1>
@@ -50,8 +50,8 @@ function SectionLibraries() {
                 type="button"
                 role="tab"
                 aria-selected={idx === currentIndex}
-                className={`w-full md:w-[240px] h-full text-lg md:text-4xl md:text-left px-10 md:px-20 border-t md:border-t-0 md:border-r border-[#B0B0B0] md:[writing-mode:vertical-rl] md:rotate-180 ${
-                  idx === currentIndex ? "" : "text-[#CCCCCC]"
+                className={`w-full md:w-[240px] h-full text-lg md:text-4xl md:text-left px-10 md:px-20 border-t md:border-t-0 md:border-r border-[#B0B0B0] md:[writing-mode:vertical-rl] md:rotate-180 cursor-pointer hover:text-[var(--foreground)] transition-colors duration-200 ease-out ${
+                  idx === currentIndex ? "" : "text-[var(--muted-foreground)]"
                 }`}
                 onClick={() => setCurrentIndex(idx)}
               >

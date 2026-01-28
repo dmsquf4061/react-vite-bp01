@@ -8,8 +8,9 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
-
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from '/vite.svg'
 
 function Gnb() {
     const navItems = [
@@ -29,13 +30,12 @@ function Gnb() {
         <div className="flex justify-center md:justify-between w-full h-full items-center md:px-9">
             {/* 로고 */}
             <div>
-                <a 
-                    href="#main" 
+                <Link to="/#main"
                     className='flex items-center gap-2 w-21 md:w-41'
                     onClick={() => setActiveId(null)}
                 >
-                    <img src={''} alt="로고" />
-                </a>
+                    <img src={logo} alt="로고" />
+                </Link>
             </div>
             {/* 네비게이션 */}            
             <NavigationMenu className="hidden md:block">
@@ -48,10 +48,10 @@ function Gnb() {
                             key={item.id}
                             onClick={() => setActiveId(item.id)}
                             className={`
-                                w-[125px] cursor-pointer transition-colors
+                                w-[125px] cursor-pointer transition-colors duration-200 ease-out
                                 ${navActive
-                                ? "text-black font-semibold"
-                                : "text-[oklch(0.57_0_0)]"}
+                                ? "text-[var(--primary)] font-semibold"
+                                : "text-[var(--primary-foreground)]"}
                             `}
                             >
                             <NavigationMenuLink href={`#${item.id}`}>

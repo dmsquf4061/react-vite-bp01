@@ -1,32 +1,55 @@
+import { Link } from "react-router-dom";
+
 function SectionWorks() {
   const works = [
-    { title: "", src: "" },
-    { title: "", src: "" },
-    { title: "", src: "" },
-    { title: "", src: "" }
+    {
+      id: "0",
+      title: "PORTFOLIO_01",
+      thumbnail: "/assets/images/aromatica/thumb.webp",
+    },
+    {
+      id: "1",
+      title: "PORTFOLIO_02",
+      thumbnail: "/assets/images/aromatica/thumb.webp",
+    },
+    {
+      id: "2",
+      title: "PORTFOLIO_03",
+      thumbnail: "/assets/images/aromatica/thumb.webp",
+    },
+    {
+      id: "3",
+      title: "PORTFOLIO_04",
+      thumbnail: "/assets/images/aromatica/thumb.webp",
+    },
   ];
 
   return (
-    <section 
-      id="works" 
-      className="relative flex flex-col w-full h-screen bg-[#F8F8F8]"
+    <section
+      id="works"
+      className="relative flex flex-col w-full bg-[#F8F8F8]"
     >
-      {/* 메인 타이틀 */}
-      <div className="flex justify-center md:justify-start items-center md:items-start md:ml-20 md:mt-60 w-full">
-        <h1 className="flex flex-col font-extrabold leading-none text-5xl md:text-7xl md:text-left">
+      {/* 타이틀 */}
+      <div className="flex justify-center md:justify-start md:ml-20 mt-30 md:mt-50 w-full">
+        <h1 className="flex flex-col md:gap-2 font-extrabold leading-none text-5xl md:text-7xl md:text-left">
           <span>Some things</span>
           <span>I’ve made</span>
         </h1>
       </div>
-      <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10 md:px-20">
-        {works.map((work, idx) => (
-          <li 
-            key={idx}
-            className="relative rounded-lg overflow-hidden aspect-[4/3] bg-[#ddd]"
+
+      {/* 리스트 */}
+      <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 px-10 md:px-20 my-10 md:my-20">
+        {works.map((work) => (
+          <li
+            key={work.id}
+            className="
+              relative rounded-lg overflow-hidden aspect-[4/5]
+              bg-[#ddd] cursor-pointer group
+            "
           >
-            <a href={`/works/${idx}`} className="group block relative overflow-hidden">
+            <Link to={`/works/${work.id}`} className="block w-full h-full">
               <img
-                src={work.src}
+                src={work.thumbnail}
                 alt={work.title}
                 className="
                   w-full h-full object-cover
@@ -35,7 +58,7 @@ function SectionWorks() {
                 "
               />
 
-              {/* hover overlay */}
+              {/* Hover */}
               <div
                 className="
                   absolute inset-0
@@ -46,16 +69,16 @@ function SectionWorks() {
                   flex items-center justify-center
                 "
               >
-                <span className="text-white text-lg font-semibold">
+                <span className="text-white text-2xl font-bold">
                   {work.title}
                 </span>
               </div>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
     </section>
-  )
+  );
 }
 
-export default SectionWorks
+export default SectionWorks;

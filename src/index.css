@@ -25,17 +25,17 @@
   -moz-osx-font-smoothing: grayscale;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.19 0 0);
+  --foreground: oklch(0.22 0 0);
   /* --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0); */
   --popover: transparent;
   --popover-foreground: oklch(0.19 0 0);
-  --primary: oklch(0.19 0 0);
-  --primary-foreground: oklch(0.57 0 0);
+  --primary: oklch(0.22 0 0);
+  --primary-foreground: oklch(0.62 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.57 0 0);
+  --muted-foreground: oklch(0.82 0 0);
   --accent: transparent;
   --accent-foreground: oklch(0.19 0 0);
   --destructive: oklch(0.19 0 0);
@@ -194,3 +194,53 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* @keyframes vertical-marquee {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+} */
+
+/* .brandlogoCarousel {
+  position: relative;
+}
+
+.brandlogoCarousel > ul {
+  animation: vertical-marquee 24s linear infinite;
+}
+} */
+
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+.portfolioCarousel > ul {
+  will-change: transform;
+  animation: portfolioCarousel 60s linear infinite;
+}
+
+@keyframes portfolioCarousel {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
