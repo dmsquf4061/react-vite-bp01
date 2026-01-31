@@ -15,7 +15,6 @@ function SectionSkills() {
 
   const [skillIndex, setSkillIndex] = useState(0);
 
-  // 자동 순환
   useEffect(() => {
     const timer = setInterval(() => {
       setSkillIndex((prev) => (prev + 1) % skills.length);
@@ -25,39 +24,34 @@ function SectionSkills() {
   }, [skills.length]);
 
   return (
-    <section 
-      id="skills" 
-      className="relative flex flex-col justify-center w-full h-screen pt-10 md:pt-0 px-10 md:px-20 bg-[#191818]"
+    <section
+      id="skills"
+      className="relative flex h-screen w-full flex-col justify-center bg-[var(--foreground)] px-10 md:px-20"
     >
       {/* 메인 타이틀 */}
-      <div className="flex justify-center md:justify-start items-center md:items-start w-full h-auto md:h-full">
-        <h1 className="md:absolute md:left-20 md:top-55 flex flex-col md:gap-2 font-extrabold leading-none text-5xl md:text-7xl md:text-left text-white">
+      <div className="flex w-full items-center justify-center md:h-full md:items-start md:justify-start">
+        <h1 className="flex flex-col font-extrabold leading-none text-5xl text-white mt-30 md:mt-50 md:text-7xl md:text-left">
           <span>What I work</span>
           <span>with</span>
         </h1>
       </div>
 
-      {/* 불투명도  */}
-      <div></div>
-
-      {/* 스킬및툴 */}
+      {/* 스킬 리스트(무한 루프) */}
       <div
         className="
-          portfolioCarousel md:absolute right-0 md:right-20 md:top-0
-          flex flex-col items-start text-left
-          w-full md:w-[35%] h-auto md:h-full
-          overflow-hidden
+          portfolioCarousel flex w-full flex-col items-center md:items-start overflow-hidden
+          md:absolute md:right-20 md:top-0 md:h-full md:w-[35%]
           [mask-image:_linear-gradient(to_bottom,transparent_0,_black_96px,_black_calc(100%-96px),transparent_100%)]
         "
       >
-        <ul className="m-0 p-0 list-none flex flex-col flex-shrink-0 gap-5 md:gap-9 pb-9 text-4xl md:text-5xl text-white whitespace-nowrap">
+        <ul className="flex flex-col flex-shrink-0 mt-30 md:mt-50 gap-5 md:gap-9 pb-9 text-4xl md:text-5xl text-white whitespace-nowrap">
           {skills.map((skill, idx) => (
             <li key={`skill-${idx}`}>{skill.label}</li>
           ))}
         </ul>
 
         <ul
-          className="m-0 p-0 list-none flex flex-col flex-shrink-0 gap-5 md:gap-9 pb-9 text-4xl md:text-5xl text-white whitespace-nowrap"
+          className="flex flex-col flex-shrink-0 gap-5 md:gap-9 pb-9 text-4xl md:text-5xl text-white whitespace-nowrap"
           aria-hidden
         >
           {skills.map((skill, idx) => (
@@ -66,17 +60,16 @@ function SectionSkills() {
         </ul>
       </div>
 
-      {/* 스킬및툴 설명 */}
-      <div className="md:absolute left-0 md:left-20 bottom-0 md:bottom-40 flex items-center justify-center w-full md:w-[calc(100%-80px)] md:w-auto">
-        <div className="flex flex-col md:w-100 text-left text-xl leading-none text-[#B0B0B0]">
-          <div className="hidden md:block flex items-center w-100 font-bold text-lg md:text-2xl border-b border-[#B0B0B0] pb-5">
+      {/* 스킬 설명 */}
+      <div className="flex w-full items-center justify-center md:absolute md:left-20 md:bottom-40 md:w-auto">
+        <div className="flex flex-col text-xl leading-none text-[var(--primary-foreground)] md:w-100">
+          <div className="hidden md:block w-100 border-b border-[var(--primary-foreground)] pb-5 text-lg font-bold md:text-2xl">
             {skills[skillIndex].label}
           </div>
-          <div className="flex justify-center md:justify-start md:mt-5 text-xs md:text-base">
+
+          <div className="flex justify-center md:justify-start text-xs md:mt-5 md:text-base">
             <p className="hidden md:block md:w-25 font-bold">Tool</p>
-            <div className="flexs">
-              {skills[skillIndex].description}
-            </div>
+            <div>{skills[skillIndex].description}</div>
           </div>
         </div>
       </div>

@@ -1,11 +1,11 @@
-import ContentImg1 from "../process/images/img1.webp";
-import ContentImg2 from "../process/images/img2.webp";
-import ContentImg3 from "../process/images/img3.webp";
-import ContentImg4 from "../process/images/img4.webp";
-import ContentImg5 from "../process/images/img5.webp";
-import ContentImg6 from "../process/images/img6.webp";
+import ContentImg1 from "/process/img1.webp";
+import ContentImg2 from "/process/img2.webp";
+import ContentImg3 from "/process/img3.webp";
+import ContentImg4 from "/process/img4.webp";
+import ContentImg5 from "/process/img5.webp";
+import ContentImg6 from "/process/img6.webp";
 
-function SectionProcess() {
+function SectionProcess({ handleOpen }) {
   const items = [
     {
       image: ContentImg1,
@@ -45,12 +45,14 @@ function SectionProcess() {
     },
   ];
 
-
   return (
-    <section id="process" className="relative w-full h-screen bg-white flex flex-col justify-between">
+    <section
+      id="process"
+      className="relative flex h-screen w-full flex-col justify-between bg-white"
+    >
       {/* 타이틀 */}
-      <div className="flex justify-center md:justify-start md:ml-20 mt-30 md:mt-50 w-full">
-        <h1 className="flex flex-col md:gap-2 font-extrabold leading-none text-5xl md:text-7xl text-left">
+      <div className="mt-50 md:mt-50 flex w-full justify-center md:ml-20 md:justify-start">
+        <h1 className="flex flex-col font-extrabold leading-none text-5xl md:text-7xl">
           How I work
         </h1>
       </div>
@@ -58,51 +60,46 @@ function SectionProcess() {
       {/* 무한 루프 캐러셀 */}
       <div
         className="
-          w-full overflow-hidden my-10 md:my-20
+          my-10 md:my-20 w-full overflow-hidden
           [mask-image:_linear-gradient(to_right,transparent_0,_black_96px,_black_calc(100%-96px),transparent_100%)]
         "
       >
-        {/* 트랙 */}
         <div className="flex w-max animate-marquee">
           {/* 원본 */}
-          <ul className="flex gap-5 pr-5 h-[600px]">
+          <ul className="flex h-[auto] md:h-[600px] gap-3 md:gap-5 pr-5">
             {items.map((item, idx) => (
               <li
                 key={`orig-${idx}`}
+                onClick={() => handleOpen(idx)}
                 className="
-                  relative group
-                  w-[280px] md:w-[380px]
-                  h-full
-                  rounded-xl overflow-hidden
+                  group relative
+                  h-full w-[380px]
+                  overflow-hidden rounded-xl
                   cursor-pointer
-                  bg-neutral-200
                 "
               >
-                {/* 이미지 */}
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
                   className="
-                    w-full h-full object-cover
+                    h-full w-full object-cover
                     transition-transform duration-500
                     group-hover:scale-105
                   "
-                  loading="lazy"
                 />
 
-                {/* Hover Overlay */}
                 <div
                   className="
                     absolute inset-0
-                    bg-black/55 backdrop-blur-sm
-                    opacity-0
-                    transition-opacity duration-500
-                    group-hover:opacity-100
                     flex flex-col items-start justify-center
-                    px-8 md:px-10 text-left
+                    px-8 md:px-10
+                    bg-black/55 backdrop-blur-sm
+                    opacity-0 transition-opacity duration-500
+                    group-hover:opacity-100
                   "
                 >
-                  <h3 className="text-white text-lg md:text-xl font-bold mb-2">
+                  <h3 className="mb-2 text-lg md:text-xl text-left font-bold text-white">
                     {item.title.split("\n").map((line, i) => (
                       <span key={i}>
                         {line}
@@ -110,7 +107,7 @@ function SectionProcess() {
                       </span>
                     ))}
                   </h3>
-                  <p className="text-white/85 text-xs md:text-sm leading-relaxed">
+                  <p className="text-xs md:text-sm text-left text-white">
                     {item.description}
                   </p>
                 </div>
@@ -118,42 +115,41 @@ function SectionProcess() {
             ))}
           </ul>
 
-          {/* 복제본(끊김 방지) */}
-          <ul className="flex gap-5 pr-5 h-[600px]" aria-hidden>
+          {/* 복제본 */}
+          <ul className="flex h-[600px] gap-3 md:gap-5 pr-5" aria-hidden>
             {items.map((item, idx) => (
               <li
                 key={`clone-${idx}`}
+                onClick={() => handleOpen(idx)}
                 className="
-                  relative group
-                  w-[280px] md:w-[380px]
-                  h-full
-                  rounded-xl overflow-hidden
+                  group relative
+                  h-full w-[280px] md:w-[380px]
+                  overflow-hidden rounded-xl
                   cursor-pointer
-                  bg-neutral-200
                 "
               >
                 <img
                   src={item.image}
                   alt=""
+                  loading="lazy"
                   className="
-                    w-full h-full object-cover
+                    h-full w-full object-cover
                     transition-transform duration-500
                     group-hover:scale-105
                   "
-                  loading="lazy"
                 />
+
                 <div
                   className="
                     absolute inset-0
-                    bg-black/55 backdrop-blur-sm
-                    opacity-0
-                    transition-opacity duration-500
-                    group-hover:opacity-100
                     flex flex-col items-start justify-center
-                    px-8 md:px-10 text-left
+                    px-8 md:px-10
+                    bg-black/55 backdrop-blur-sm
+                    opacity-0 transition-opacity duration-500
+                    group-hover:opacity-100
                   "
                 >
-                  <h3 className="text-white text-lg md:text-xl font-bold mb-2">
+                  <h3 className="mb-2 text-lg md:text-xl font-bold text-white">
                     {item.title.split("\n").map((line, i) => (
                       <span key={i}>
                         {line}
@@ -161,7 +157,7 @@ function SectionProcess() {
                       </span>
                     ))}
                   </h3>
-                  <p className="text-white/85 text-xs md:text-sm leading-relaxed">
+                  <p className="text-xs md:text-sm leading-relaxed text-white">
                     {item.description}
                   </p>
                 </div>

@@ -1,13 +1,15 @@
 import Gnb from "@/components/common/gnb";
 import Details from "./details/details";
+import Footer from "@/components/common/footer";
 
-function WorkDetails() {
+function WorkDetailsPage() {
   return (
     <>
       <Gnb />
       <Details />
+      <Footer />
     </>
   );
 }
 
-export default WorkDetails;
+export default WorkDetailsPage;

@@ -10,7 +10,7 @@ const worksdata = [
       techStack: ["React", "Tailwind CSS", "GSAP", "Swiper", "React", "Tailwind CSS", "GSAP", "Swiper"],
     },
     hero: {
-      image: "/assets/images/aromatica/main.webp",
+      image: "/works/img1.webp",
       alt: "Aromatica main visual",
     },
     concept: {
@@ -39,7 +39,7 @@ const worksdata = [
       techStack: ["React", "Tailwind CSS", "GSAP", "Swiper"],
     },
     hero: {
-      image: "/assets/images/aromatica/main.webp",
+      image: "/works/img2.webpv",
       alt: "Aromatica main visual",
     },
     concept: {
@@ -68,7 +68,36 @@ const worksdata = [
       techStack: ["React", "Tailwind CSS", "GSAP", "Swiper"],
     },
     hero: {
-      image: "/assets/images/aromatica/main.webp",
+      image: "/works/img3.webp",
+      alt: "Aromatica main visual",
+    },
+    concept: {
+      description:
+        "A clean and minimal vegan beauty brand renewal. The focus was on clarity, balance, and subtle interaction.",
+    },
+    typography: {
+      fontFamily: [{ name: "Pretendard", value: "Pretendard" }],
+    },
+    colorPalette: {
+      colors: [
+        { name: "Background", hex: "#0B0B0B" },
+        { name: "Text", hex: "#FFFFFF" },
+      ],
+    },
+    process: {
+      description:
+        "Improved usability by simplifying layout and enhancing scroll-based interactions for smoother user flow.",
+    },
+  },
+  {
+    id: "3",
+    header: {
+      title: "PORTFOLIO_04",
+      period: "1 month (2026.01 – 2026.02)",
+      techStack: ["React", "Tailwind CSS", "GSAP", "Swiper"],
+    },
+    hero: {
+      image: "/works/img4.webp",
       alt: "Aromatica main visual",
     },
     concept: {
@@ -99,20 +128,20 @@ function Details() {
     return worksdata.find((w) => w.id === id) ?? null;
   }, [id]);
 
-  if (!work) {
-    return (
-      <section className="px-10 py-20 bg-black text-white">
-        <h1 className="text-3xl mb-3">Work not found</h1>
-        <p className="opacity-60">잘못된 주소이거나 삭제된 포트폴리오입니다.</p>
-        <Link
-          to="/#works"
-          className="inline-block mt-8 px-4 py-2 border border-white/30 rounded-lg hover:bg-white hover:text-black transition"
-        >
-          Back to Works
-        </Link>
-      </section>
-    );
-  }
+  // if (!work) {
+  //   return (
+  //     <section className="px-10 py-20 bg-black text-white">
+  //       <h1 className="text-3xl mb-3">Work not found</h1>
+  //       <p className="opacity-60">잘못된 주소이거나 삭제된 포트폴리오입니다.</p>
+  //       <Link
+  //         to="/#works"
+  //         className="inline-block mt-8 px-4 py-2 border border-white/30 rounded-lg hover:bg-white hover:text-black transition"
+  //       >
+  //         Back to Works
+  //       </Link>
+  //     </section>
+  //   );
+  // }
 
   return (
     <section className="px-10 md:px-20 pb-20 pt-25 md:pt-50 bg-black text-white">
@@ -181,8 +210,18 @@ function Details() {
           {/* 이미지처럼 스퀘어만 2~3개 보여주고 싶으면 여기만 바꾸면 됨 */}
           <ul className="mt-10 flex gap-6">
             {work.colorPalette.colors.slice(0, 2).map((color) => (
-              <li key={color.hex}>
-                <div className="w-20 h-20" style={{ backgroundColor: color.hex }} />
+              <li key={color.hex} className="relative group">
+                {/* 컬러 박스 */}
+                <div
+                  className="w-20 h-20 rounded-lg cursor-pointer"
+                  style={{ backgroundColor: color.hex }}
+                />
+
+                {/* 중앙 텍스트 오버레이 */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center text-xs font-medium text-white bg-black/40  backdrop-blur-sm opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none rounded-lg">
+                  {color.hex}
+                </div>
               </li>
             ))}
           </ul>
