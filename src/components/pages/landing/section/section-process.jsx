@@ -66,7 +66,7 @@ function SectionProcess({ handleOpen }) {
       >
         <div className="flex w-max animate-marquee">
           {/* 원본 */}
-          <ul className="flex h-[auto] md:h-[600px] gap-3 md:gap-5 pr-5">
+          <ul className="flex h-[clamp(240px,45vh,600px)] gap-3 md:gap-5 pr-5">
             {items.map((item, idx) => (
               <li
                 key={`orig-${idx}`}
@@ -116,7 +116,7 @@ function SectionProcess({ handleOpen }) {
           </ul>
 
           {/* 복제본 */}
-          <ul className="flex h-[600px] gap-3 md:gap-5 pr-5" aria-hidden>
+          <ul className="flex h-[clamp(240px,45vh,600px)] gap-3 md:gap-5 pr-5" aria-hidden>
             {items.map((item, idx) => (
               <li
                 key={`clone-${idx}`}

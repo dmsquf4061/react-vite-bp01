@@ -40,29 +40,39 @@ function SectionSkills() {
       <div
         className="
           portfolioCarousel flex w-full flex-col items-center md:items-start overflow-hidden
-          md:absolute md:right-20 md:top-0 md:h-full md:w-[35%]
+          md:absolute md:right-20 md:top-0 md:h-full md:w-[35%] 
           [mask-image:_linear-gradient(to_bottom,transparent_0,_black_96px,_black_calc(100%-96px),transparent_100%)]
         "
       >
-        <ul className="flex flex-col flex-shrink-0 mt-30 md:mt-50 gap-5 md:gap-9 pb-9 text-4xl md:text-5xl text-white whitespace-nowrap">
+        <ul className="flex flex-col flex-shrink-0 mt-30 md:mt-50 gap-5 md:gap-9 pb-9 text-4xl md:text-5xl text-white md:text-left whitespace-nowrap">
           {skills.map((skill, idx) => (
-            <li key={`skill-${idx}`}>{skill.label}</li>
+            <li
+              key={`skill-clone-${idx}`}
+              className={idx === skillIndex ? "pl-0" : "pl-20"}
+            >
+              {skill.label}
+            </li>
           ))}
         </ul>
 
         <ul
-          className="flex flex-col flex-shrink-0 gap-5 md:gap-9 pb-9 text-4xl md:text-5xl text-white whitespace-nowrap"
+          className="flex flex-col flex-shrink-0 gap-5 md:gap-9 pb-9 text-4xl md:text-5xl text-white md:text-left whitespace-nowrap"
           aria-hidden
         >
           {skills.map((skill, idx) => (
-            <li key={`skill-clone-${idx}`}>{skill.label}</li>
+            <li
+              key={`skill-clone-${idx}`}
+              className={idx === skillIndex ? "pl-0" : "pl-20"}
+            >
+              {skill.label}
+            </li>
           ))}
         </ul>
       </div>
 
       {/* 스킬 설명 */}
       <div className="flex w-full items-center justify-center md:absolute md:left-20 md:bottom-40 md:w-auto">
-        <div className="flex flex-col text-xl leading-none text-[var(--primary-foreground)] md:w-100">
+        <div className="flex flex-col text-xl leading-none text-[var(--primary-foreground)] md:w-100 md:text-left">
           <div className="hidden md:block w-100 border-b border-[var(--primary-foreground)] pb-5 text-lg font-bold md:text-2xl">
             {skills[skillIndex].label}
           </div>

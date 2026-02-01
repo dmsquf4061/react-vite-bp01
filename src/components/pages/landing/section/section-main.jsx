@@ -11,29 +11,39 @@ function SectionMain() {
   const [charIndex, setCharIndex] = useState(0);
   const [output, setOutput] = useState([]);
 
-  const speed = 160 + Math.random() * 120;
+  // 🔹 글자 타이핑 속도 (빠름 유지)
+  const typingSpeed = 30 + Math.random() * 20 + lineIndex * 10;
+
+  // 🔹 문장 하나 끝났을 때 내려가는 딜레이 (핵심)
+  const LINE_DELAY = 250; // 200~350 사이로 조절 추천
 
   useEffect(() => {
     if (lineIndex >= lines.length) return;
 
     const currentLine = lines[lineIndex];
 
-    const timer = setTimeout(() => {
-      if (charIndex < currentLine.length) {
+    // 🔸 아직 글자 타이핑 중
+    if (charIndex < currentLine.length) {
+      const timer = setTimeout(() => {
         setOutput((prev) => {
           const next = [...prev];
-          next[lineIndex] = (next[lineIndex] || "") + currentLine[charIndex];
+          next[lineIndex] =
+            (next[lineIndex] || "") + currentLine[charIndex];
           return next;
         });
         setCharIndex((prev) => prev + 1);
-        return;
-      }
+      }, typingSpeed);
 
+      return () => clearTimeout(timer);
+    }
+
+    // 🔸 문장 하나 끝남 → 잠깐 멈췄다가 다음 줄
+    const lineTimer = setTimeout(() => {
       setLineIndex((prev) => prev + 1);
       setCharIndex(0);
-    }, speed);
+    }, LINE_DELAY);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(lineTimer);
   }, [charIndex, lineIndex]);
 
   const isDone = lineIndex >= lines.length;
