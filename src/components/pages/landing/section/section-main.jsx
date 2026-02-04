@@ -131,17 +131,17 @@ function SectionMain() {
       />
 
       {/* content */}
-      <div className="relative z-10 h-full px-4 sm:px-10 md:px-20">
+      <div className="relative z-10 h-full px-4 sm:px-10 md:px-15">
         {/* title */}
         <div className="flex items-center justify-center md:items-start md:justify-start h-[50%] md:h-full">
-          <h1 className="absolute flex flex-col font-extrabold leading-none text-7xl md:text-[205px] md:left-20 md:top-40 md:text-left">
+          <h1 className="absolute flex flex-col font-extrabold leading-none text-7xl md:text-[205px] md:left-12 md:top-40 md:text-left">
             <span>BASIC TO</span>
             <span>BASIC</span>
           </h1>
         </div>
 
         {/* left text */}
-        <div className="absolute left-10 md:left-20 bottom-10 md:bottom-20">
+        <div className="absolute left-10 md:left-15 bottom-10 md:bottom-15">
           <div className="flex flex-col gap-1 md:gap-2 text-xl leading-none text-left">
             <p>BASIC TO</p>
             <p>BASIC</p>
@@ -153,7 +153,7 @@ function SectionMain() {
         {/* typing box */}
         <div
           className="
-            absolute right-10 md:right-20 bottom-10 md:bottom-20
+            absolute right-10 md:right-15 bottom-10 md:bottom-15
             w-[calc(100%-80px)] md:w-[420px]
             h-[180px] p-6 rounded-xl
             bg-stone-900 font-mono text-green-400

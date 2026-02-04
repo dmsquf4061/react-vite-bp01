@@ -28,7 +28,8 @@ function Gnb() {
           className="flex w-21 items-center justify-center gap-2 md:w-41 md:justify-start"
           onClick={() => setActiveId(null)}
         >
-          <img src={logo} alt="로고" />
+         <div className="text-2xl font-bold">The B</div>
+          {/* <img src={logo} alt="로고" /> */}
         </Link>
 
         {/* 네비게이션 */}

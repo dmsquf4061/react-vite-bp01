@@ -14,12 +14,12 @@ function ProcessModal({ isOpen, workId, onClose }) {
       >
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded p-2 transition-colors hover:text-[var(--primary)]"
+          className="absolute right-4 top-4 rounded p-2 transition-colors text-[var(--primary-foreground)] hover:text-[var(--muted-foreground)] cursor-pointer"
         >
           <X className="text-[var(--primary-foreground)]" />
         </button>
 
-        <div className="text-black">
+        <div className="">
           workId: {workId}
         </div>
       </div>
