@@ -7,7 +7,7 @@ function WorkDetailsPage() {
     <>
       <Gnb />
       <Details />
-      <Footer />
+      <Footer variant="dark" />
     </>
   );
 }

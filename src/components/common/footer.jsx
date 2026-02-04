@@ -1,46 +1,42 @@
-function Footer() {
-  return (
-    <footer className="border-t border-[var(--muted-foreground)] text-sm">
-      <div className="py-10 px-4 sm:px-10 md:px-20">
-        {/* 상단 */}
-        <div className="flex flex-col gap-5 md:gap-10 md:flex-row items-center md:items-start md:justify-between">
-          {/* 로고 + 소개 */}
-          <div className="max-w-sm md:text-left">
-            <div className="text-lg font-bold text-[var(--primary-foreground)]">
-              The B
-            </div>
+const footerVariant = {
+  light: {
+    bg: "bg-[#F8F8F8]",
+    text: "text-[var(--primary-foreground)]",
+    muted: "text-[var(--muted-foreground)]",
+  },
+  dark: {
+    bg: "bg-[#111111]",
+    text: "text-[var(--muted-foreground)]",
+    muted: "text-[var(--primary-foreground)]",
+  },
+};
 
-            <p className="text-[var(--muted-foreground)]">
-              Web Publisher focused on clean UI implementation and
-              responsive web experiences.
+function Footer({ variant = "light" }) {
+  const v = footerVariant[variant];
+
+  return (
+    <footer className={`${v.bg}`}>
+      <div className="py-10 px-4 sm:px-10 md:px-20 md:text-left">
+        <div className="flex flex-col gap-5 md:gap-10 md:flex-row items-center md:justify-between">
+          <div className="max-w-sm">
+            <div className={`text-lg font-bold ${v.text}`}>The B</div>
+            <p className={`mt-2 text-sm ${v.muted}`}>
+              Web Publisher focused on clean UI implementation and responsive web experiences.
             </p>
           </div>
 
-          {/* 메뉴 */}
-          <nav className="flex gap-5 md:gap-10 text-xs text-[var(--primary-foreground)]">
-            <a href="#about" className="transition-colors hover:text-[var(--primary)]">
-              About 
-            </a>
+          <nav className={`flex gap-5 md:gap-10 text-xs ${v.text}`}>
+            <a className="hover:opacity-80">About</a>
             <span>|</span>
-            <a href="#works" className="transition-colors hover:text-[var(--primary)]">
-              Works
-            </a>
+            <a className="hover:opacity-80">Works</a>
             <span>|</span>
-            <a href="#process" className="transition-colors hover:text-[var(--primary)]">
-              Process
-            </a>
+            <a className="hover:opacity-80">Process</a>
             <span>|</span>
-            <a
-              href="mailto:dmsquf4061@naver.com"
-              className="transition-colors hover:text-[var(--primary)]"
-            >
-              Contact
-            </a>
+            <a className="hover:opacity-80">Contact</a>
           </nav>
         </div>
 
-        {/* 하단 */}
-        <div className="mt-5 md:mt-12 text-xs text-[var(--muted-foreground)] md:text-left">
+        <div className={`mt-8 text-xs ${v.muted}`}>
           © {new Date().getFullYear()} The B. All rights reserved.
         </div>
       </div>

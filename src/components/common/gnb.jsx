@@ -21,7 +21,7 @@ function Gnb() {
 
   return (
     <header className="fixed left-0 top-0 z-20 h-12 w-full bg-transparent backdrop-blur-2xl md:h-15">
-      <div className="flex h-full w-full items-center justify-center md:justify-between md:px-9">
+      <div className="flex h-full w-full items-center justify-center md:justify-between px-4 sm:px-10 md:px-15">
         {/* 로고 */}
         <Link
           to="/#main"

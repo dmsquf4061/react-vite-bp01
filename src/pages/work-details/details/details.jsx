@@ -144,15 +144,15 @@ function Details() {
   // }
 
   return (
-    <section className="px-10 md:px-20 pb-20 pt-25 md:pt-50 bg-black text-white">
+    <section className="px-4 sm:px-10 md:px-15 pb-20 pt-25 md:pt-50 bg-black text-white flex flex-col gap-10 sm:gap-15 md:gap-20">
       {/* HEADER */}
       <div className="flex flex-col items-center">
         <h1 className="text-4xl md:text-7xl mb-6">{work.header.title}</h1>
         <p className="text-[var(--muted-foreground)]">{work.header.period}</p>
 
-        <ul className="flex flex-wrap justify-center gap-2 mt-6 w-[50%]">
+        <ul className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-6 w-[50%]">
           {work.header.techStack.map((tech) => (
-            <li key={tech} className="px-3 py-1 border border-[var(--primary-foreground)] rounded-full text-[var(--primary-foreground)]">
+            <li key={tech} className="text-sm sm:text-[16px] px-3 py-1 border border-[var(--primary-foreground)] rounded-full text-[var(--primary-foreground)]">
               {tech}
             </li>
           ))}
@@ -160,7 +160,7 @@ function Details() {
       </div>
 
       {/* HERO */}
-      <div className="mt-20 h-[420px] bg-neutral-700 overflow-hidden rounded-xl">
+      <div className="h-[420px] bg-[var(--primary-foreground)] overflow-hidden rounded-xl">
         <img
           src={work.hero.image}
           alt={work.hero.alt}
@@ -170,32 +170,32 @@ function Details() {
       </div>
 
       {/* CONCEPT */}
-      <div className="mt-32 text-left">
-        <h2 className="text-sm tracking-widest opacity-60">CONCEPT</h2>
-        <div className="mt-4 h-px bg-white/20" />
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed opacity-70">
+      <div className="mt-10 text-left">
+        <h2 className="text-sm sm:text-[18px] text-[var(--muted-foreground)]">CONCEPT</h2>
+        <div className="mt-4 h-px border-t border-t-[var(--primary-foreground)]" />
+        <p className="mt-6 max-w-2xl text-sm text-[var(--primary-foreground)]">
           {work.concept.description}
         </p>
       </div>
 
       {/* TYPOGRAPHY + COLOR PALETTE */}
-      <div className="mt-24 grid grid-cols-1 text-left md:grid-cols-2 gap-20">
+      <div className="grid grid-cols-1 text-left md:grid-cols-2 gap-10 sm:gap-15">
         {/* TYPOGRAPHY */}
         <div>
-          <h2 className="text-sm tracking-widest opacity-60">TYPOGRAPHY</h2>
-          <div className="mt-4 h-px bg-white/20" />
-          <div className="mt-10">
+          <h2 className="text-sm sm:text-[18px] text-[var(--muted-foreground)]">TYPOGRAPHY</h2>
+          <div className="mt-4 h-px border-t border-t-[var(--primary-foreground)]" />
+          <div className="mt-10 text-[var(--muted-foreground)]">
             <p className="text-4xl mb-6" style={{ fontFamily: work.typography.fontFamily[0]?.value }}>
               {work.typography.fontFamily[0]?.name ?? "Typography"}
             </p>
             <p
-              className="text-sm opacity-60 mb-2"
+              className="text-sm mb-2 text-[var(--primary-foreground)]"
               style={{ fontFamily: work.typography.fontFamily[0]?.value }}
             >
               가나다라마바사아자차카타파하
             </p>
             <p
-              className="text-sm opacity-40 tracking-wider"
+              className="text-sm text-[var(--primary-foreground)]"
               style={{ fontFamily: work.typography.fontFamily[0]?.value }}
             >
               ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -205,21 +205,21 @@ function Details() {
 
         {/* COLOR PALETTE */}
         <div>
-          <h2 className="text-sm tracking-widest opacity-60">COLOR PALETTE</h2>
-          <div className="mt-4 h-px bg-white/20" />
+          <h2 className="text-sm sm:text-[18px] text-[var(--muted-foreground)]">COLOR PALETTE</h2>
+          <div className="mt-4 h-px border-t border-t-[var(--primary-foreground)]" />
           {/* 이미지처럼 스퀘어만 2~3개 보여주고 싶으면 여기만 바꾸면 됨 */}
           <ul className="mt-10 flex gap-6">
             {work.colorPalette.colors.slice(0, 2).map((color) => (
               <li key={color.hex} className="relative group">
                 {/* 컬러 박스 */}
                 <div
-                  className="w-20 h-20 rounded-lg cursor-pointer"
+                  className="w-20 h-20 rounded-lg cursor-pointer border border-[var(--primary-foreground)]"
                   style={{ backgroundColor: color.hex }}
                 />
 
                 {/* 중앙 텍스트 오버레이 */}
                 <div
-                  className="absolute inset-0 flex items-center justify-center text-xs font-medium text-white bg-black/40  backdrop-blur-sm opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none rounded-lg">
+                  className="absolute inset-0 flex items-center justify-center text-xs font-medium text-white bg-[var(--primary-foreground)]  backdrop-blur-sm opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none rounded-lg">
                   {color.hex}
                 </div>
               </li>
@@ -229,10 +229,10 @@ function Details() {
       </div>
 
       {/* PROCESS (전체폭, 아래) */}
-      <div className="mt-24 text-left">
-        <h2 className="text-sm tracking-widest opacity-60">PROCESS & SOLUTIONS</h2>
-        <div className="mt-4 h-px bg-white/20" />
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed opacity-70">
+      <div className="text-left">
+        <h2 className="text-sm sm:text-[18px] text-[var(--muted-foreground)]">PROCESS & SOLUTIONS</h2>
+        <div className="mt-4 h-px border-t border-t-[var(--primary-foreground)]" />
+        <p className="mt-6 max-w-2xl text-sm text-[var(--primary-foreground)]">
           {work.process.description}
         </p>
       </div>

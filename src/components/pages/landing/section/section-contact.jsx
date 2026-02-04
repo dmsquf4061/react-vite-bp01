@@ -6,7 +6,7 @@ function SectionContact() {
       id="contact"
       className="w-full h-screen bg-white"
     >
-      <div className="flex flex-col justify-end h-full px-4 sm:px-10 md:px-20 pb-15 md:pb-20">
+      <div className="flex flex-col justify-end h-full px-4 sm:px-10 md:px-15 pb-15 md:pb-15">
         {/* 메인 타이틀 */}
         <h1
           className="

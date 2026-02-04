@@ -26,7 +26,7 @@ function SectionSkills() {
   return (
     <section
       id="skills"
-      className="relative flex h-screen w-full flex-col justify-center bg-[var(--foreground)] px-10 md:px-20"
+      className="relative flex h-screen w-full flex-col justify-center bg-[var(--foreground)] px-10 md:px-15"
     >
       {/* 메인 타이틀 */}
       <div className="flex w-full items-center justify-center md:h-full md:items-start md:justify-start">
@@ -40,7 +40,7 @@ function SectionSkills() {
       <div
         className="
           portfolioCarousel flex w-full flex-col items-center md:items-start overflow-hidden
-          md:absolute md:right-20 md:top-0 md:h-full md:w-[35%] 
+          md:absolute md:right-15 md:top-0 md:h-full md:w-[35%] 
           [mask-image:_linear-gradient(to_bottom,transparent_0,_black_96px,_black_calc(100%-96px),transparent_100%)]
         "
       >
@@ -62,7 +62,7 @@ function SectionSkills() {
           {skills.map((skill, idx) => (
             <li
               key={`skill-clone-${idx}`}
-              className={idx === skillIndex ? "pl-0" : "pl-20"}
+              className={idx === skillIndex ? "pl-0" : "pl-15"}
             >
               {skill.label}
             </li>
@@ -71,7 +71,7 @@ function SectionSkills() {
       </div>
 
       {/* 스킬 설명 */}
-      <div className="flex w-full items-center justify-center md:absolute md:left-20 md:bottom-40 md:w-auto">
+      <div className="flex w-full items-center justify-center md:absolute md:left-15 md:bottom-40 md:w-auto">
         <div className="flex flex-col text-xl leading-none text-[var(--primary-foreground)] md:w-100 md:text-left">
           <div className="hidden md:block w-100 border-b border-[var(--primary-foreground)] pb-5 text-lg font-bold md:text-2xl">
             {skills[skillIndex].label}

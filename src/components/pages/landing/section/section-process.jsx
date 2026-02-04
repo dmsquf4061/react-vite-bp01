@@ -51,7 +51,7 @@ function SectionProcess({ handleOpen }) {
       className="relative flex h-screen w-full flex-col justify-between bg-white"
     >
       {/* 타이틀 */}
-      <div className="mt-50 md:mt-50 flex w-full justify-center md:ml-20 md:justify-start">
+      <div className="mt-50 md:mt-50 h-[35%] flex w-full justify-center md:ml-15 md:justify-start">
         <h1 className="flex flex-col font-extrabold leading-none text-5xl md:text-7xl">
           How I work
         </h1>
@@ -60,13 +60,13 @@ function SectionProcess({ handleOpen }) {
       {/* 무한 루프 캐러셀 */}
       <div
         className="
-          my-10 md:my-20 w-full overflow-hidden
+          my-10 md:my-15 w-full overflow-hidden h-[65%] max-h-[600px]
           [mask-image:_linear-gradient(to_right,transparent_0,_black_96px,_black_calc(100%-96px),transparent_100%)]
         "
       >
-        <div className="flex w-max animate-marquee">
+        <div className="flex h-full w-max animate-marquee">
           {/* 원본 */}
-          <ul className="flex h-[clamp(240px,45vh,600px)] gap-3 md:gap-5 pr-5">
+          <ul className="flex h-full gap-3 md:gap-5 pr-5">
             {items.map((item, idx) => (
               <li
                 key={`orig-${idx}`}
@@ -107,7 +107,7 @@ function SectionProcess({ handleOpen }) {
                       </span>
                     ))}
                   </h3>
-                  <p className="text-xs md:text-sm text-left text-white">
+                  <p className="text-xs md:text-sm text-left text-white text-left">
                     {item.description}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ function SectionProcess({ handleOpen }) {
           </ul>
 
           {/* 복제본 */}
-          <ul className="flex h-[clamp(240px,45vh,600px)] gap-3 md:gap-5 pr-5" aria-hidden>
+          <ul className="flex h-full gap-3 md:gap-5 pr-5" aria-hidden>
             {items.map((item, idx) => (
               <li
                 key={`clone-${idx}`}
@@ -149,7 +149,7 @@ function SectionProcess({ handleOpen }) {
                     group-hover:opacity-100
                   "
                 >
-                  <h3 className="mb-2 text-lg md:text-xl font-bold text-white">
+                  <h3 className="mb-2 text-left text-lg md:text-xl font-bold text-white">
                     {item.title.split("\n").map((line, i) => (
                       <span key={i}>
                         {line}
@@ -157,7 +157,7 @@ function SectionProcess({ handleOpen }) {
                       </span>
                     ))}
                   </h3>
-                  <p className="text-xs md:text-sm leading-relaxed text-white">
+                  <p className="text-xs md:text-sm leading-relaxed text-white text-left">
                     {item.description}
                   </p>
                 </div>

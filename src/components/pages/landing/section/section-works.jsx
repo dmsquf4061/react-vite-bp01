@@ -11,7 +11,7 @@ function SectionWorks({ handleOpen }) {
   return (
     <section id="works" className="flex w-full flex-col bg-[#F8F8F8]">
       {/* 타이틀 */}
-      <div className="mt-30 md:mt-50 flex w-full justify-center ml-4 sm:ml-10 md:ml-20 md:justify-start">
+      <div className="mt-30 md:mt-50 flex w-full justify-center ml-4 sm:ml-10 md:ml-15 md:justify-start">
         <h1 className="flex flex-col font-extrabold leading-none text-5xl md:text-7xl md:text-left">
           <span>Some things</span>
           <span>I’ve made</span>
@@ -19,7 +19,7 @@ function SectionWorks({ handleOpen }) {
       </div>
 
       {/* 리스트 */}
-      <ul className="my-10 md:my-20 grid grid-cols-1 gap-3 md:gap-5 md:grid-cols-3 px-4 sm:px-10 md:px-20">
+      <ul className="my-10 md:my-15 grid grid-cols-1 gap-3 md:gap-5 md:grid-cols-3 px-4 sm:px-10 md:px-15">
         {works.map((work) => (
           <li
             key={work.id}
